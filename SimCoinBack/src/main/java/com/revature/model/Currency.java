@@ -1,18 +1,25 @@
 package com.revature.model;
 
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Currency")
 public class Currency {
 	
-	private int id;
+	@Id
+	private int currencyId;
+	
+	@ManyToMany(mappedBy="ownedCurrency")
+	Set<User> owned;
+	
 	private double price;
 	private String name;
 	
@@ -37,5 +44,4 @@ public class Currency {
 	}
 	
 	
-
 }
