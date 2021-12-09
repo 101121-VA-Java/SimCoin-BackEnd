@@ -21,15 +21,9 @@ public class Currency {
 	Set<User> owned;
 	
 	private double price;
-	private String name;
+	private String name;	
 	
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public double getPrice() {
 		return price;
 	}

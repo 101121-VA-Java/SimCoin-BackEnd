@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 public class User {
@@ -22,11 +23,13 @@ public class User {
 			name="currency_owned",
 			joinColumns=@JoinColumn(name="userId"),
 			inverseJoinColumns=@JoinColumn(name="currencyId"))
-	Set<Currency> ownedCurrency;
+			Set<Currency> ownedCurrency;
 	
 	private String username;
 	private String password;
 	private String email;
+	@Transient
+	private double netGain;
 	private Currency currencies;
 	
 	
