@@ -12,16 +12,22 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
+@Table(name="currency")
 public class Currency {
 	
 	@Id
+	@Column
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int currencyId;
+	@Column(nullable=false)
+	private double price;
+	@Column(nullable=false)
+	private String name;	
+	
 	
 	@ManyToMany(mappedBy="ownedCurrency")
 	Set<User> owned;
 	
-	private double price;
-	private String name;	
 	
 
 	public double getPrice() {

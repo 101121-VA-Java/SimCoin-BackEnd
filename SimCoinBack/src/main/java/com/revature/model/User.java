@@ -14,25 +14,49 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
+@Table(name="users")
 public class User {
 	
 	@Id
-	int userId;
+	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int userId;
+	@Column(nullable=false, unique=true)
+	private String username;
+	@Column(nullable=false)
+	private String password;
+	@Column(nullable=false)
+	private String email;
+	@Transient
+	private double netGain;
+	
 	@ManyToMany
 	@JoinTable(
 			name="currency_owned",
 			joinColumns=@JoinColumn(name="userId"),
 			inverseJoinColumns=@JoinColumn(name="currencyId"))
 			Set<Currency> ownedCurrency;
-	
-	private String username;
-	private String password;
-	private String email;
-	@Transient
-	private double netGain;
-	private Currency currencies;
+
 	
 	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public Set<Currency> getOwnedCurrency() {
+		return ownedCurrency;
+	}
+	public void setOwnedCurrency(Set<Currency> ownedCurrency) {
+		this.ownedCurrency = ownedCurrency;
+	}
+	public double getNetGain() {
+		return netGain;
+	}
+	public void setNetGain(double netGain) {
+		this.netGain = netGain;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -51,13 +75,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Currency getCurrencies() {
-		return currencies;
-	}
-	public void setCurrencies(Currency currencies) {
-		this.currencies = currencies;
-	}
-	
+
 	
 	
 }

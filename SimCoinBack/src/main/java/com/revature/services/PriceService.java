@@ -2,10 +2,12 @@ package com.revature.services;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import com.revature.model.Currency;
 import com.revature.model.User;
 
-
+@Service
 public class PriceService {
 	
 	

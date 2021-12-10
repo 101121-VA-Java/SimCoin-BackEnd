@@ -11,9 +11,6 @@ public class SimCoinApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SimCoinApplication.class, args);
 		
-		User user = new User();
-		user.getCurrencies();
-		
 	}
 	
 	
