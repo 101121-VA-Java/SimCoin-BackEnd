@@ -1,4 +1,4 @@
-----insert into users(userid, username, password, email) values (1, 'test', 'test', 'test', 'test@test.com');
+--insert into users(userid, username, password, email, user_role) values (1, 'test', 'test', 'test', 'test@test.com', 'basic');
 ----
 ----insert into currency(currencyid, price, name) values (1, 50000, 'BTC');
 ----

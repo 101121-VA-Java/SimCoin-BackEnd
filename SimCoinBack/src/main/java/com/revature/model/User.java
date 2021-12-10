@@ -27,6 +27,20 @@ public class User {
 	private String password;
 	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false, name="user_role")
+	private String role;
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	@Transient
 	private double netGain;
 	

@@ -19,7 +19,11 @@ public class UserService {
 		this.ud = ud;
 	}
 
-	public List<User> getAll() {
+	public List<User> getAllUsers() {
 		return ud.findAll();
+	}
+	
+	public List<User> getUserByRole(String role){
+		return ud.findUsersByRole(role);
 	}
 }

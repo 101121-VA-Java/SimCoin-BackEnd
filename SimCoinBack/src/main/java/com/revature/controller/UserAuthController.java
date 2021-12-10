@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.User;
@@ -26,11 +27,17 @@ public class UserAuthController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public List<User> getUsers(){
-		return us.getAll();
+	public List<User> getUsers(@RequestParam(name="user_role", required = false)String role){
+		if(role!=null) {
+			return us.getUserByRole(role);
+		}
+		return us.getAllUsers();
 		
 	}
-	
+//	
+//	@GetMapping("/{role}")
+//	public ResponseEntity
+//	
 	
 	
 
