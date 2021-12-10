@@ -12,13 +12,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="currency")
+@Table(name="currencies")
 public class Currency {
 	
 	@Id
-	@Column
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int currencyId;
+//	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int currencyid;
 	@Column(nullable=false)
 	private double price;
 	@Column(nullable=false)

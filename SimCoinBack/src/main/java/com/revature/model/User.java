@@ -18,9 +18,9 @@ import javax.persistence.Transient;
 public class User {
 	
 	@Id
-	@Column
+//	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int userId;
+	private int userid;
 	@Column(nullable=false, unique=true)
 	private String username;
 	@Column(nullable=false)
@@ -32,18 +32,18 @@ public class User {
 	
 	@ManyToMany
 	@JoinTable(
-			name="currency_owned",
-			joinColumns=@JoinColumn(name="userId"),
-			inverseJoinColumns=@JoinColumn(name="currencyId"))
+			name="users_currencies",
+			joinColumns=@JoinColumn(name="userid"),
+			inverseJoinColumns=@JoinColumn(name="currencyid"))
 			Set<Currency> ownedCurrency;
 
 	
 	
 	public int getUserId() {
-		return userId;
+		return userid;
 	}
 	public void setUserId(int userId) {
-		this.userId = userId;
+		this.userid = userId;
 	}
 	public Set<Currency> getOwnedCurrency() {
 		return ownedCurrency;
