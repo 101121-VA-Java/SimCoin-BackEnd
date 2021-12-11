@@ -1,27 +1,28 @@
-#This is a comment
-server:
-  port: 5432
+#server:
+#  port: 8080
+#
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://database-1.cumj4bcitu8s.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project2test
+#    username: postgres
+#    password: mypass1234
+#    jpa:
+#      show-sql: true
+#      database-platform: org.hibernate.dialect.PostgreSQLDialect
+#      hibernate:
+#        ddl-auto: none
 
 spring:
-#  datasource:
-#    url: ${DB_URL} #can hardcode credentials, but better practice to use environment variables to not expose creds
-#    username: ${DB_USER}
-#    password: ${DB_PASS}
-#  jpa:
-#    show-sql: true
-#    database-platform: org.hibernate.dialect.PostgreSQLDialect
-#    hibernate:
-#      ddl-auto: validate
-  datasource: 
-    url: jdbc:h2:mem:mydb
-    username: user
-    password: pass
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create
-  h2:
-    console:
-      enabled: true
-  
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  profiles:
+    active:
+    - "@profileActive@"
+
+# Actuator setting to display more metrics about the application
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

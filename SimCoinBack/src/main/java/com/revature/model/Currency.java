@@ -42,6 +42,16 @@ public class Currency {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public int getCurrencyid() {
+		return currencyid;
+	}
+	public void setCurrencyid(Integer id) {
+		this.currencyid = id;
+	}
+	@Override
+	public String toString() {
+		return "Currency [currencyid=" + currencyid + ", price=" + price + ", name=" + name + "]";
+	}
 	
 	
 }

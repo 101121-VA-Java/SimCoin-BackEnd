@@ -1,0 +1,13 @@
+--insert into users(userid, username, password, email, user_role) values (1, 'test', 'test', 'test', 'test@test.com', 'basic');
+----
+----insert into currency(currencyid, price, name) values (1, 50000, 'BTC');
+----
+----insert into currency_owned(userid, currencyid, amount) values (1, 1, 0.4);
+--
+--create table currencies(
+--currencyid int primary key,
+--price numeric not null,
+--name varchar(10) not null
+--);
+--
+--insert into currencies(currencyid, price, name) values (1, 50000, 'btc')

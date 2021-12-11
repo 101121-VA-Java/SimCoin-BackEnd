@@ -18,16 +18,12 @@ import com.revature.services.PriceService;
 @CrossOrigin("*")
 public class PriceListController {
 	
-	private PriceService p;
-	
-	@Autowired
-	public PriceListController(PriceService p) {
-		this.p = p;
-	}
-	
-	@RequestMapping(method=RequestMethod.GET) 
-	public ArrayList<Currency> getPriceList(){		
-		return  p.getPriceList();
-	}
+
+	private PriceService ps;
+ 
+	@Autowired public PriceListController(PriceService ps) { this.ps = ps; }
+ 
+	@RequestMapping(method=RequestMethod.GET) public ArrayList<Currency>
+	getPriceList(){ return ps.getPriceList(); }
 
 }
