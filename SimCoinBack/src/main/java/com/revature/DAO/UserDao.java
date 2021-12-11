@@ -11,5 +11,5 @@ import com.revature.model.User;
 @Repository
 public interface UserDao extends JpaRepository<User, Integer> {
 	List<User> findUsersByRole(String role);
-
+	 void addUser(User user);
 }
