@@ -20,7 +20,7 @@ public class User {
 	@Id
 //	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int userid;
+	private int userId;
 	@Column(nullable=false, unique=true)
 	private String username;
 	@Column(nullable=false)
@@ -30,10 +30,10 @@ public class User {
 	@Column(nullable=false, name="user_role")
 	private String role;
 	public int getUserid() {
-		return userid;
+		return userId;
 	}
 	public void setUserid(int userid) {
-		this.userid = userid;
+		this.userId = userid;
 	}
 	public String getRole() {
 		return role;
@@ -54,10 +54,10 @@ public class User {
 	
 	
 	public int getUserId() {
-		return userid;
+		return userId;
 	}
 	public void setUserId(int userId) {
-		this.userid = userId;
+		this.userId = userId;
 	}
 	public Set<Currency> getOwnedCurrency() {
 		return ownedCurrency;

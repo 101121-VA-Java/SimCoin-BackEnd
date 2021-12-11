@@ -19,16 +19,24 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @CrossOrigin("*")
 public class UserController {
 	private UserService us;
-	
+
 	@Autowired
 	public UserController(UserService us) {
 		this.us = us;
 	}
-	@CrossOrigin
-	@RequestMapping(method=RequestMethod.POST, value="/users")
-	public ResponseEntity<String> addUser(@RequestBody User user){
-		us.addUser(user);
-		return new ResponseEntity<>(user.getUserid() +" " + user.getUsername() + " Welcome To SimCoin New Member.", HttpStatus.CREATED);
-	}   
 
+//	@CrossOrigin
+//	@RequestMapping(method=RequestMethod.POST)
+//	public ResponseEntity<String> addUser(@RequestBody User user){
+//		System.out.println("Hello from user Controller");
+//		us.addUser(user);
+//		return new ResponseEntity<>(user.getUserid() +" " + user.getUsername() + " Welcome To SimCoin New Member.", HttpStatus.CREATED);
+//		
+	@PostMapping // @RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<String> createUser(@RequestBody User user) {
+		System.out.println("Hello from user Controller");
+		System.out.println(user);
+		us.addUser(user);
+		return new ResponseEntity<>(user.getUserid() + " was created.", HttpStatus.CREATED);
+	}
 }

@@ -1,9 +1,9 @@
 #server:
 #  port: 8080
-#
+
 #spring:
 #  datasource:
-#    url: jdbc:postgresql://database-1.cumj4bcitu8s.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project2test
+#    url: jdbc:postgresql://database-1.cumj4bcitu8s.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project2
 #    username: postgres
 #    password: mypass1234
 #    jpa:
