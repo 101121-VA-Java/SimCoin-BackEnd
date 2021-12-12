@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="currencies")
@@ -19,7 +20,7 @@ public class Currency {
 //	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int currencyid;
-	@Column(nullable=false)
+	@Transient
 	private double price;
 	@Column(nullable=false)
 	private String name;	

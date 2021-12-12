@@ -22,8 +22,6 @@ public class PriceService {
 	
 	
 	private static CurrencyDao cd;
-	private PriceService ps;
-
 
 	@Autowired
 	private PriceService(CurrencyDao cd) {
@@ -35,23 +33,24 @@ public class PriceService {
 
         ArrayList<Currency> priceList = new ArrayList<Currency>();
 
-        String [] currNames = {"btc", "eth", "ltc", "mxr", "trx"};
+        String [] currNames = {"btc", "eth", "ltc", "xmr", "trx"};
         String [] cryptNames = {"btc", "eth", "ltc", "xmr", "trx"};
         Integer [] currIds = {1, 2, 3, 4, 5};
 
-        Currency c = new Currency();
+        
 
         for (int i = 0; i < 5; i++) { 
+        	Currency c = new Currency();
+        	
             c.setName(currNames[i]);
             c.setCurrencyid(currIds[i]);
-
-            double price = CurrencyDao.getUSD(cryptNames[i]);
-
-            c.setPrice(price);
-
+            c.setPrice(CurrencyDao.getUSD(cryptNames[i]));
+            
+//            System.out.println("value of i in the getPriceList for loop: " + i);
+//            System.out.println("current currency object in the getPriceList for loop: " + c);
             priceList.add(c);
+//            System.out.println("price list from PriceService: " + priceList); 
         	}
-       System.out.println("price list from PriceService: " + priceList); 
        return priceList;
 	}
 }
