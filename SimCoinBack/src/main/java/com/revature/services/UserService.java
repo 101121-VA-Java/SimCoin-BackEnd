@@ -33,4 +33,8 @@ public class UserService {
 		ud.save(user);
 		
 	}
+	
+	public User findUserById(int id) {
+		return ud.findById(id);
+	}
 }
