@@ -2,27 +2,33 @@ package com.revature.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
+@Embeddable
 @Table(name="users_currencies")
-public class UserCurrency {
+public class UserCurrency implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
-	
-	@OneToOne
-	@JoinColumn(name = "userid", referencedColumnName = "userid")
+	@Column(name = "userid")
 	private int userid;
 	
-	@OneToOne
-	@JoinColumn(name = "currencyid", referencedColumnName = "currencyid")
+	@Column(name = "currencyid")
 	private int currencyid;
 	
-	@Column(name="amount")
+	@Column(name = "amount")
 	private int amount;
 
 	public int getId() {
