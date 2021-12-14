@@ -36,16 +36,9 @@ public class UserController {
 		return new ResponseEntity<>(user.getUserid() + " was created.", HttpStatus.CREATED);
 	}
 	@RequestMapping(method=RequestMethod.GET) public User getCurrentUser(){
-		User u = new User();
 		
-		u.setUserid(1);
-		u.setUsername("test username");
-		u.setEmail("testuser@testing.com");
-		u.setPassword("testpass");
-		/*
-		 * u.setTotal(75000); u.setCash(25000); u.setNetGain(25000); u.setBtc(30000);
-		 * u.setEth(1500); u.setLtc(10000); u.setXmr(0); u.setTrx(0);
-		 */
+		int id = 1;
+		User u = us.getUserById(id);
 		
 		return u;
 	}

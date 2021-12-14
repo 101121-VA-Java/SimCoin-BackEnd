@@ -20,8 +20,10 @@ public class Currency {
 //	@Column
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int currencyid;
-	@Transient
+	
+	@Transient 
 	private double price;
+	 
 	@Column(nullable=false)
 	private String name;	
 	
