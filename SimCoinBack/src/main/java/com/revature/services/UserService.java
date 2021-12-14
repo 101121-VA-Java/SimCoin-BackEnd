@@ -53,8 +53,6 @@ public class UserService {
 		ArrayList<UserCurrency> holdings = ucd.findAllByUserid(id);
 		System.out.println(holdings);
 		
-			
-		
 			for (int i = 0; i < holdings.size(); i++) {
 				
 				UserCurrency thisHolding = holdings.get(i);

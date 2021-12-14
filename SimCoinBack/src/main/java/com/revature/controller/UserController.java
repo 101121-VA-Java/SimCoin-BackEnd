@@ -37,7 +37,7 @@ public class UserController {
 	}
 	@RequestMapping(method=RequestMethod.GET) public User getCurrentUser(){
 		
-		int id = 1;
+		int id = 2;
 		User u = us.getUserById(id);
 		
 		return u;
