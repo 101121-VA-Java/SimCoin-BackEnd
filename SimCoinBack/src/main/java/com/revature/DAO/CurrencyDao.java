@@ -31,5 +31,6 @@ public interface CurrencyDao extends JpaRepository<Currency, Integer> {
 	}
 	
 	Currency findById(int id);
+	Currency findByName(String name);
 
 }
