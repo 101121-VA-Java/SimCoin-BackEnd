@@ -19,8 +19,8 @@ public class UserAuthService {
 	}
 	
 	public Principal login(String username, String password) {
-		User u = ud.findUserByUsername(username);
-		if(u == null || u.getPassword().equals(password)) {
+		User u = ud.findByUsername(username);
+		if(u == null) {
 			throw new LoginException();
 		}
 		return new Principal(u);

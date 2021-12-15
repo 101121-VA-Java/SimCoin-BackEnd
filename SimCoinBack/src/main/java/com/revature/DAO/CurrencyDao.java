@@ -29,5 +29,8 @@ public interface CurrencyDao extends JpaRepository<Currency, Integer> {
 			return -1;
 		}
 	}
+	
+	Currency findById(int id);
+	Currency findByName(String name);
 
 }
