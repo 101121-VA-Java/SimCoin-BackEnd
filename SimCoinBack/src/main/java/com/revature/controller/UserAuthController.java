@@ -29,6 +29,7 @@ public class UserAuthController {
 	public ResponseEntity<Principal> login(@RequestParam(name="username")String username, @RequestParam(name="password") String password){
 		Principal principal = as.login(username, password);
 		String token = as.generateToken(principal);
+		System.out.println("Token being sent from UserAuthController: " + token);
 		HttpHeaders hh = new HttpHeaders();
 		hh.set("Authorization", token);
 		return new ResponseEntity<>(principal, hh, HttpStatus.OK);

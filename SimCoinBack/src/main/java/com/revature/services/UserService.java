@@ -51,7 +51,7 @@ public class UserService {
 		User u = ud.findById(id);
 		//System.out.println(u);
 		ArrayList<UserCurrency> holdings = ucd.findAllByUserid(id);
-		System.out.println(holdings);
+		//System.out.println(holdings);
 		
 			for (int i = 0; i < holdings.size(); i++) {
 				
@@ -94,7 +94,7 @@ public class UserService {
 			}
 			u.setTotal(u.getCash() + u.getBtc() + u.getEth() + u.getLtc() + u.getXmr() + u.getXmr() + u.getTrx());
 			u.setNetGain(u.getTotal() - 50000);
-			System.out.println("User to be returned to front end from UserService: " + u);
+			//System.out.println("User to be returned to front end from UserService: " + u);
 			return u;
 		}
 		

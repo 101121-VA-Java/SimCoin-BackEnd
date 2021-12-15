@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,9 +36,9 @@ public class UserController {
 		us.addUser(user);
 		return new ResponseEntity<>(user.getUserid() + " was created.", HttpStatus.CREATED);
 	}
-	@RequestMapping(method=RequestMethod.GET) public User getCurrentUser(){
+	
+	@GetMapping("/{id}") public User getCurrentUser(@PathVariable("id")int id){
 		
-		int id = 2;
 		User u = us.getUserById(id);
 		
 		return u;

@@ -29,7 +29,7 @@ public class UserCurrency implements Serializable{
 	private int currencyid;
 	
 	@Column(name = "amount")
-	private int amount;
+	private double amount;
 
 	public int getId() {
 		return id;
@@ -55,23 +55,12 @@ public class UserCurrency implements Serializable{
 		this.currencyid = currencyid;
 	}
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
 	public void setAmount(int amount) {
 		this.amount = amount;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + amount;
-		result = prime * result + currencyid;
-		result = prime * result + id;
-		result = prime * result + userid;
-		return result;
 	}
 
 	@Override
