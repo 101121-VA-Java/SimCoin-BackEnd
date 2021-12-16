@@ -20,7 +20,9 @@ public class UserService {
 	
 	private UserDao ud;
 	private UserCurrencyDao ucd;
+	@SuppressWarnings("unused")
 	private CurrencyDao cd;
+	
 	
 	@Autowired
 	public UserService(UserDao ud, UserCurrencyDao ucd, CurrencyDao cd) {
@@ -96,8 +98,9 @@ public class UserService {
 			u.setNetGain(u.getTotal() - 50000);
 			//System.out.println("User to be returned to front end from UserService: " + u);
 			return u;
-		}
-	
+
+		}		
+		}	
 	public User getUserCoinsById(int id) {
 		User u = ud.findById(id);
 		//System.out.println(u);
@@ -148,6 +151,5 @@ public class UserService {
 			//System.out.println("User to be returned to front end from UserService: " + u);
 			return u;
 		}
-		
 }
 
