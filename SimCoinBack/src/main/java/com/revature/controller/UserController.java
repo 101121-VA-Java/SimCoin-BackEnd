@@ -43,5 +43,10 @@ public class UserController {
 		
 		return u;
 	}
-	
+	@GetMapping("/coins/{id}") public User getCurrentUserCoinValues(@PathVariable("id")int id){
+		
+		User u = us.getUserCoinsById(id);
+		
+		return u;
+	}
 }
