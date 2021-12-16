@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.DAO.CurrencyDao;
-import com.revature.DAO.UserCurrencyDao;
 import com.revature.DAO.UserDao;
 import com.revature.model.User;
 
@@ -14,17 +12,11 @@ import com.revature.model.User;
 public class TopListService {
 	
 	private UserDao ud;
-	@SuppressWarnings("unused")
-	private UserCurrencyDao ucd;
-	@SuppressWarnings("unused")
-	private CurrencyDao cd;
 	private UserService us;
 	
 	@Autowired
-	public TopListService(UserDao ud, UserCurrencyDao ucd, CurrencyDao cd, UserService us) {
+	public TopListService(UserDao ud, UserService us) {
 		this.ud = ud;
-		this.ucd = ucd;
-		this.cd = cd;
 		this.us = us;
 	}
 	
