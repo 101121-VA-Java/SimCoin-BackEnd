@@ -34,7 +34,7 @@ public class TopListService {
 		ArrayList<User> users2 = new ArrayList<User>();
 		ArrayList<User> users = ud.findAll();
 		
-		System.out.println("All users: " + users);
+		//System.out.println("All users: " + users);
 		for (int i = 0; i < users.size(); i++) {
 			
 			User u = users.get(i);
@@ -42,7 +42,7 @@ public class TopListService {
 			users2.add(us.getUserById(id));
 		}
 		
-		System.out.println("All users with data: " + users2);
+		//System.out.println("All users with data: " + users2);
 		for (int i = 1; i < users2.size(); i++) {
 			for (int j = 1; j < (users2.size()-i); j++) {
 			
@@ -58,12 +58,12 @@ public class TopListService {
 			}
 		}
 		
-		System.out.println("Ordered users2: " + users2);
+		//System.out.println("Ordered users2: " + users2);
 		for (int i = 0; i < 3; i++) {
 			topList.add(i, users2.get(i));
 		}
 		
-		System.out.println("TopList:" + topList);
+		//System.out.println("TopList:" + topList);
 		return topList;
 	}
 
