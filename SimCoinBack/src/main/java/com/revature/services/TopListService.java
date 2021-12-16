@@ -44,23 +44,26 @@ public class TopListService {
 		
 		System.out.println("All users with data: " + users2);
 		for (int i = 1; i < users2.size(); i++) {
+			for (int j = 1; j < (users2.size()-i); j++) {
 			
-			User user1 = users2.get(i-1);
-			User user2 = users2.get(i);
-			double user1net = user1.getNetGain();
-			double user2net = user2.getNetGain();
+				User user1 = users2.get(j-1);
+				User user2 = users2.get(j);
+				double user1net = user1.getNetGain();
+				double user2net = user2.getNetGain();
 			
-			if(user2net > user1net) {
-				users2.remove(i);
-				users2.add(i-1, user2);
+				if(user2net > user1net) {
+					users2.remove(j);
+					users2.add(j-1, user2);
+				}
 			}
 		}
 		
+		System.out.println("Ordered users2: " + users2);
 		for (int i = 0; i < 3; i++) {
 			topList.add(i, users2.get(i));
 		}
 		
-		System.out.println(topList);
+		System.out.println("TopList:" + topList);
 		return topList;
 	}
 
