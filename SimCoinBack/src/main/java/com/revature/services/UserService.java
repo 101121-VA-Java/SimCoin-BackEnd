@@ -100,7 +100,7 @@ public class UserService {
 			return u;
 
 		}		
-		}	
+			
 	public User getUserCoinsById(int id) {
 		User u = ud.findById(id);
 		//System.out.println(u);
