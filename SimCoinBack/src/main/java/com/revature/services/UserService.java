@@ -21,12 +21,14 @@ public class UserService {
 	private UserDao ud;
 	private UserCurrencyDao ucd;
 	private CurrencyDao cd;
+	private UserService us;
 	
 	@Autowired
-	public UserService(UserDao ud, UserCurrencyDao ucd, CurrencyDao cd) {
+	public UserService(UserDao ud, UserCurrencyDao ucd, CurrencyDao cd, UserService us) {
 		this.ud = ud;
 		this.ucd = ucd;
 		this.cd = cd;
+		this.us = us;
 	}
 
 
@@ -97,6 +99,41 @@ public class UserService {
 			//System.out.println("User to be returned to front end from UserService: " + u);
 			return u;
 		}
+	
+	public ArrayList<User> getTop(){
+		
+		ArrayList<User> topList = new ArrayList<User>();
+		ArrayList<User> users2 = new ArrayList<User>();
+		ArrayList<User> users = ud.findAll();
+		
+		for (int i = 0; i < users.size(); i++) {
+			
+			User u = users.get(i);
+			int id = u.getUserid();
+			users2.add(us.getUserById(id));
+		}
+		
+		System.out.println(users2);
+		for (int i = 1; i < users2.size(); i++) {
+			
+			User user1 = users2.get(i-1);
+			User user2 = users2.get(i);
+			double user1net = user1.getNetGain();
+			double user2net = user2.getNetGain();
+			
+			if(user2net > user1net) {
+				users2.remove(i);
+				users2.add(i-1, user2);
+			}
+		}
+		
+		for (int i = 0; i < 3; i++) {
+			topList.add(i, users2.get(i));
+		}
+		
+		System.out.println(topList);
+		return topList;
+	}
 		
 }
 
