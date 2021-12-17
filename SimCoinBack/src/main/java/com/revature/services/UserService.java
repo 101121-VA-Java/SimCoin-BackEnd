@@ -41,8 +41,14 @@ public class UserService {
 	}
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void addUser(User user) {
-		ud.save(user);
-		
+		User u = ud.save(user);
+		int id = u.getUserid();
+		UserCurrency uc = new UserCurrency();
+		uc.setUserid(id);
+		uc.setCurrencyid(6);
+		uc.setAmount(50000);
+		//System.out.println(uc);
+		ucd.save(uc);
 	}
 	
 	public User findUserById(int id) {
