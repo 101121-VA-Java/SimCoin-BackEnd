@@ -17,7 +17,7 @@ pipeline {
             script {
                 properties([pipelineTriggers([githubPush()])])
             }
-            git branch: 'main', url: 'https://github.com/101121-VA-Java/SimCoin-BackEnd.git'
+            git branch: 'develop', url: 'https://github.com/101121-VA-Java/SimCoin-BackEnd.git'
 
           }
       }
