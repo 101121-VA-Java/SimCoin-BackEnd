@@ -4,8 +4,8 @@ pipeline {
     environment {
         PORT_HOST="8081"
         PORT_CONT="8080"
-        IMAGE_TAG="SimCoin"
-        CONTAINER_NAME="SimCoin"
+        IMAGE_TAG="simcoin"
+        CONTAINER_NAME="simcoin"
         DB_URL='jdbc:postgresql://database-1.cumj4bcitu8s.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project2'
         DB_USER='postgres'
         DB_PASS='mypass1234'
