@@ -152,7 +152,7 @@ public class UserService {
 					}
 				}
 			}
-			u.setTotal(u.getCash() + u.getBtc() + u.getEth() + u.getLtc() + u.getXmr() + u.getXmr() + u.getTrx());
+			u.setTotal(u.getCash() + u.getBtc() + u.getEth() + u.getLtc() + u.getXmr() + u.getTrx());
 			u.setNetGain(u.getTotal() - 50000);
 			//System.out.println("User to be returned to front end from UserService: " + u);
 			return u;
