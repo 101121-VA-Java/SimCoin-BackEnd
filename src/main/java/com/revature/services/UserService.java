@@ -52,7 +52,9 @@ public class UserService {
 	}
 	
 	public User findUserById(int id) {
+		System.out.println(ud + "@line 55 service");
 		return ud.findById(id);
+		
 	}
 	
 	public User getUserById(int id) {
@@ -157,5 +159,10 @@ public class UserService {
 			//System.out.println("User to be returned to front end from UserService: " + u);
 			return u;
 		}
+	public User update(User user) {
+		User u = ud.save(user);
+		System.out.println(u + "here at service 162");
+		return u;
+	}
 }
 
