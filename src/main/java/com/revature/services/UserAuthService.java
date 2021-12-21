@@ -27,7 +27,7 @@ public class UserAuthService {
 	}
 	
 	public String generateToken(Principal principal) {
-		String token = principal.getId() + ":" + principal.getRole();
+		String token = principal.getId() + ":" + principal.getRole() + ":"+ principal.getName();
 		
 		return token;
 	}
