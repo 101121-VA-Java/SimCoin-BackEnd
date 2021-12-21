@@ -33,8 +33,8 @@ VIP Users:
 <br/> 1. A VIP user may purchase, sell, and trade amongst all 5 available cryptocurrencies
 <br/>
 <br/>
-Stretch Goals:
-<br/> 1. A user can view a pie graph of their holdings in each crypto (accomplished!)
-<br/> 2. The login system will be backed with a reCaptcha button through the google reCaptcha API (accomplished!)
-<br/> 3. A user can purchase a crypto currency with the value from another, rather than first having to convert back to USD (accomplished!)
-<br/> 4. The login function will be backed by 3rd party authentication
+Accomplished Stretch Goals:
+<br/> 1. A user can view a pie graph of their holdings in each crypto 
+<br/> 2. The login system will be backed with a reCaptcha button through the google reCaptcha API 
+<br/> 3. A user can purchase a crypto currency with the value from another, rather than first having to convert back to USD 
+<br/> 4. The application will feature a chat room option that leverages a Web Socket through which users online can converse.
