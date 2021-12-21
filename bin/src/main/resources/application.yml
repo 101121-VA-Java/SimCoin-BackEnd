@@ -1,0 +1,28 @@
+#server:
+#  port: 8080
+#
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://database-1.cumj4bcitu8s.us-east-2.rds.amazonaws.com:5432/postgres?currentSchema=project2test
+#    username: postgres
+#    password: mypass1234
+#    jpa:
+#      show-sql: true
+#      database-platform: org.hibernate.dialect.PostgreSQLDialect
+#      hibernate:
+#        ddl-auto: none
+
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  profiles:
+    active:
+    - "@profileActive@"
+
+# Actuator setting to display more metrics about the application
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
