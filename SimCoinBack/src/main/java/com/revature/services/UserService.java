@@ -50,6 +50,10 @@ public class UserService {
 		//System.out.println(uc);
 		ucd.save(uc);
 	}
+	public User update(User user) {
+		User u = ud.save(user);
+		return u;
+	}
 	
 	public User findUserById(int id) {
 		return ud.findById(id);
