@@ -36,7 +36,7 @@ public class UserController {
 		System.out.println("Hello from user Controller");
 		System.out.println(user);
 		us.addUser(user);
-		return new ResponseEntity<>(user.getUserid() + " was created.", HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/{id}") public User getCurrentUser(@PathVariable("id")int id){
