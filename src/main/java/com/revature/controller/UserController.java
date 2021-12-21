@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Currency;
@@ -49,4 +51,33 @@ public class UserController {
 		
 		return u;
 	}
-}
+	
+	@PutMapping
+	public ResponseEntity updateUser(@RequestParam(name="userId")int userId,
+			@RequestParam(name="username") String username,
+			@RequestParam(name="email") String email,
+			@RequestParam(name="password") String password){
+		
+		
+		User u = us.getUserById(userId);
+		u.setUsername(username);
+		u.setPassword(password);
+		u.setEmail(email);
+		us.update(u);
+		
+		return new ResponseEntity(HttpStatus.OK);
+	}}
+//	@PutMapping
+//	public ResponseEntity<String> updateUser(@RequestBody User user) {
+//		
+//		
+//		System.out.println("----------------------------" + user.getUserid());
+//		User u = us.update(user);
+//		
+//		u.setUsername(user.getUsername());
+//		u.setPassword(user.getPassword());
+//		u.setEmail(user.getEmail());
+//		
+//		return new ResponseEntity<>(u.getUserid() + " was updated.", HttpStatus.CREATED);
+//	}
+//}
