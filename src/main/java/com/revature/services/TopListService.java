@@ -35,7 +35,7 @@ public class TopListService {
 		}
 		
 		//System.out.println("All users with data: " + users2);
-		for (int i = 1; i < users2.size(); i++) {
+		for (int i = 0; i < users2.size(); i++) {
 			for (int j = 1; j < (users2.size()-i); j++) {
 			
 				User user1 = users2.get(j-1);
