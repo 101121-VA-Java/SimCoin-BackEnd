@@ -30,7 +30,8 @@ public class UserController {
 	@Autowired
 	public UserController(UserService us) {
 		this.us = us;
-	}		
+	}
+
 	@PostMapping // @RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<String> createUser(@RequestBody User user) {
 		System.out.println("Hello from user Controller");
@@ -38,46 +39,34 @@ public class UserController {
 		us.addUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
-	@GetMapping("/{id}") public User getCurrentUser(@PathVariable("id")int id){
-		
+
+	@GetMapping("/{id}")
+	public User getCurrentUser(@PathVariable("id") int id) {
+
 		User u = us.getUserById(id);
-		
+
 		return u;
 	}
-	@GetMapping("/coins/{id}") public User getCurrentUserCoinValues(@PathVariable("id")int id){
-		
+
+	@GetMapping("/coins/{id}")
+	public User getCurrentUserCoinValues(@PathVariable("id") int id) {
+
 		User u = us.getUserCoinsById(id);
-		
+
 		return u;
 	}
-	
+
 	@PutMapping
-	public ResponseEntity updateUser(@RequestParam(name="userId")int userId,
-			@RequestParam(name="username") String username,
-			@RequestParam(name="email") String email,
-			@RequestParam(name="password") String password){
-		
-		
+	public ResponseEntity updateUser(@RequestParam(name = "userId") int userId,
+			@RequestParam(name = "username") String username, @RequestParam(name = "email") String email,
+			@RequestParam(name = "password") String password) {
+
 		User u = us.getUserById(userId);
 		u.setUsername(username);
 		u.setPassword(password);
 		u.setEmail(email);
 		us.update(u);
-		
+
 		return new ResponseEntity(HttpStatus.OK);
-	}}
-//	@PutMapping
-//	public ResponseEntity<String> updateUser(@RequestBody User user) {
-//		
-//		
-//		System.out.println("----------------------------" + user.getUserid());
-//		User u = us.update(user);
-//		
-//		u.setUsername(user.getUsername());
-//		u.setPassword(user.getPassword());
-//		u.setEmail(user.getEmail());
-//		
-//		return new ResponseEntity<>(u.getUserid() + " was updated.", HttpStatus.CREATED);
-//	}
-//}
+	}
+}
