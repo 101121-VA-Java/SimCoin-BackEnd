@@ -44,15 +44,22 @@ public class ExchangeService {
 		
 		// ----- removing balance -----
 		// looping to find the amount to subtract
+		boolean found = false; //checking if the user has that coin.
 		for (UserCurrency lc : listUc)	{
 			Currency currency = cd.findById(lc.getCurrencyid());
 			//find where Currency == from
 			if (currency.getName().equals(from)) {
+				found = true;
 				 double currentAmount = lc.getAmount();
+				 if (currentAmount < amount) {		//checking if there is enough balance			 
+					 return false;					 
+				 }
 				 lc.setAmount(currentAmount - amount);		
-				 uc.save(lc);
-				
+				 uc.save(lc);				
 			}
+		}
+		if (found = false) {
+			return false;
 		}
 		// ----- end removing balance -----
 		
